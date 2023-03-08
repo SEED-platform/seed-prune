@@ -9,16 +9,16 @@ This script allows you to cull all data from a SEED database except for specific
     DB_USER=seeduser
     DB_PASSWORD=password
     DB_PORT=5432
-    
+
     API_URL=http://seed.lan:8000/api/v3/
     API_USERNAME=alex.swindler@nrel.gov
     API_KEY=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-    
+
     ORGS_TO_KEEP=[123,456]
     USERS_TO_KEEP=[1,2,3]
     ```
 
-2. Run `ts-node index.ts`
+2. Run `npm run start`
 
 - All organizations except those referenced will be fully deleted
 - All users except for those referenced will be deleted
