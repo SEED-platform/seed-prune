@@ -22,8 +22,8 @@ axios.defaults.auth = {
 axios.interceptors.response.use(({data}) => data);
 
 let myUserId: number;
-const orgsToKeep = JSON.parse(process.env.ORGS_TO_KEEP || '[]');
-const usersToKeep = JSON.parse(process.env.USERS_TO_KEEP || '[]');
+const orgsToKeep: number[] = JSON.parse(process.env.ORGS_TO_KEEP || '[]');
+const usersToKeep: number[] = JSON.parse(process.env.USERS_TO_KEEP || '[]');
 
 type Org = {
   name: string,
@@ -129,7 +129,7 @@ async function progress(key: string) {
 function hashPassword(password = 'password') {
   const iterations = 260000;
   const salt = randomString(22);
-  const hash = pbkdf2Sync('password', salt, iterations, 32, 'sha256').toString('base64');
+  const hash = pbkdf2Sync(password, salt, iterations, 32, 'sha256').toString('base64');
   return `pbkdf2_sha256$${iterations}$${salt}$${hash}`;
 }
 
